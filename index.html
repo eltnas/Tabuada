@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tabuada</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="./Assets/css/style.css" />
+</head>
+<body>
+	<header>
+		<section id="logo">Tabuada</section>
+	</header>
+
+	<section id="ins-valor">
+		<form>
+		  <input type="number" id="divisor" placeholder="Digite o divisor" />
+		  <input type="number" id="repetir" placeholder="Tabuada até o número?" />
+		  <button type="submit" id="gerar" onclick="gerarTabuada()">Gerar tabuada</button>
+		</form>
+	</section>
+
+	<div id="tabuada"></div>
+
+	<script>
+
+		const btn = document.querySelector('#gerar');
+
+		btn.addEventListener('click', (e)=>{
+			e.preventDefault();
+
+			var num = parseInt(document.getElementById("divisor").value);
+		  	var rep = parseInt(document.getElementById("repetir").value);
+
+		  	if (rep == '') { rep = 1; }
+
+		  	var tabuadaHTML = "<table>";
+		  	for (var i = 0; i <= rep; i++) {
+		    	var result = num * i;
+		    	tabuadaHTML += "<tr><td>" + num + " x " + i + " = </td><td>" + result + "</td></tr>";
+		    	console.log(tabuadaHTML);
+		  	}
+		  	tabuadaHTML += "</table>";
+		  	document.getElementById("tabuada").innerHTML = tabuadaHTML;
+		})
+		// function gerarTabuada() {
+		//   var num = parseInt(document.getElementById("divisor").value);
+		//   var rep = parseInt(document.getElementById("repetir").value);
+
+		//   if (rep == '') { rep = 1; }
+
+		//   var tabuadaHTML = "<table>";
+		//   for (var i = 0; i <= rep; i++) {
+		//     var result = num * i;
+		//     tabuadaHTML += "<tr><td>" + num + " x " + i + " = </td><td>" + result + "</td></tr>";
+		//     console.log(tabuadaHTML);
+		//   }
+		//   tabuadaHTML += "</table>";
+		//   document.getElementById("tabuada").innerHTML = tabuadaHTML;
+		// }
+	</script>
+</body>
+</html>
